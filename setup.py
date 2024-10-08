@@ -11,7 +11,7 @@ setup(
     version='0.1',
     packages=find_packages(),
     install_requires=parse_requirements(),
-    description='Logging and encrypted message handler package',
+    description='Websocket connection handler package',
     author='Leo Martinez',
     author_email='leojmartinez@proton.me',
     url='https://github.com/thecheetahcat/socket-client',
