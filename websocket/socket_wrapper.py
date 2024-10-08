@@ -1,5 +1,5 @@
-from socket_interface import SocketInterface
-from exchange_strategy_interface import ExchangeStrategyInterface
+from .socket_interface import SocketInterface
+from .exchange_strategy_interface import ExchangeStrategyInterface
 import asyncio
 import websockets
 import json
