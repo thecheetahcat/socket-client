@@ -28,27 +28,30 @@ pip install -r requirements.txt
 Implementing `SocketWrapper` without an `ExchangeStrategy` or callback methods:
 
 ```python
-from socket.socket_wrapper import SocketWrapper
+from websocket.socket_wrapper import SocketWrapper
 import asyncio
+
 
 async def main():
     socket_client = SocketWrapper("<websocket_url>")
     await socket_client.start()
     socket_task = asyncio.create_task(socket_client.run())
-    
+
     # make any api requests or stream requests here
     # for example: await socket_client.send_message(your_request)
-    
+
     await asyncio.sleep(60)  # keep the connection alive for 60 seconds
     await socket_client.stop_stream(socket_task)  # safely close the connection 
+
 
 asyncio.run(main())
 ```
 
 Adding an ExchangeStrategy (Deribit):
+
 ```python
-from socket.exchange_strategy_interface import ExchangeStrategyInterface
-from socket.socket_wrapper import SocketWrapper
+from websocket.exchange_strategy_interface import ExchangeStrategyInterface
+from websocket.socket_wrapper import SocketWrapper
 
 # deribit has a specific heartbeat message and response
 HB_MSG = {"jsonrpc": "2.0", "id": 0000, "method": "public/set_heartbeat", "params": {"interval": 30}}
@@ -73,8 +76,10 @@ class DeribitSocketManager(SocketWrapper):
 ```
 
 Adding callback methods for receiving messages and reconnecting:
+
 ```python
-from socket.socket_wrapper import SocketWrapper
+from websocket.socket_wrapper import SocketWrapper
+
 
 # you can either add them on instantiation:
 def default_callback(obj):
@@ -84,7 +89,7 @@ def default_callback(obj):
 def default_reconnect_callback():
     print("Reconnected!")
 
-    
+
 instantiated_callback_client = SocketWrapper("<websocket_url>", callback=default_callback, reconnect_callback=default_reconnect_callback)
 
 # or you can add them after instantiation:
