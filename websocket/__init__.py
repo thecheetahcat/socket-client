@@ -1,2 +1,2 @@
-from .socket_wrapper import SocketWrapper
-from .exchange_strategy_interface import ExchangeStrategyInterface
+from websocket.socket_wrapper import SocketWrapper
+from websocket.exchange_strategy_interface import ExchangeStrategyInterface
