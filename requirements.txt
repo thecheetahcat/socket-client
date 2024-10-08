@@ -15,7 +15,7 @@ hyperframe==6.0.1
 idna==3.10
 jsonschema==4.23.0
 jsonschema-specifications==2023.12.1
-logging_notifications @ git+https://github.com/thecheetahcat/logging-notifications.git@70735333153ee1e152f76a09934befa9d473bf9c
+logging_notifications @ git+https://github.com/thecheetahcat/logging-notifications.git@master
 matrix-nio==0.25.2
 multidict==6.1.0
 peewee==3.17.6
